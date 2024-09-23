@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>مفكرة جلال الخزعلي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- إضافة أيقونات من Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- عنصر عرض التاريخ -->
+        <div id="current-date"></div>
+        
+        <h1>مفكرة جلال الخزعلي</h1>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="أضف مهمة جديدة..." required>
+            <button type="submit"><i class="fa fa-plus"></i></button>
+        </form>
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- عناصر الصوت -->
+    <audio id="add-sound" src="sounds/add.wav"></audio>
+    <audio id="delete-sound" src="sounds/delete.wav"></audio>
+
+    <!-- ربط ملف JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/* Reset بعض الأنماط الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* إضافة أنيميشن الظهور */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#current-date {
+    text-align: center;
+    font-size: 1em;
+    color: #555555;
+    margin-bottom: 10px;
+    font-weight: 500;
+    animation: slideDown 1s ease-in-out;
+}
+
+/* أنيميشن انزلاق التاريخ للأسفل */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 2em;
+    animation: slideInDown 1s ease-in-out;
+}
+
+/* أنيميشن انزلاق العنوان من الأعلى */
+@keyframes slideInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#task-form {
+    display: flex;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* أنيميشن الظهور للأعلى */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#task-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+#task-input:focus {
+    border-color: #6c5ce7;
+    outline: none;
+}
+
+#task-form button {
+    padding: 12px 15px;
+    border: none;
+    background-color: #6c5ce7;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#task-form button:hover {
+    background-color: #5a4bd8;
+    transform: scale(1.05);
+}
+
+#task-list {
+    list-style: none;
+    /* تم تجاهل خاصية التمرير */
+}
+
+/* تصميم عناصر المهام */
+#task-list li {
+    background-color: #f1f1f1;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideIn 0.5s forwards, hoverEffect 0.3s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* أنيميشن انزلاق المهام */
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* أنيميشن تأثير التحويم */
+@keyframes hoverEffect {
+    from { box-shadow: 0 0 0 rgba(0,0,0,0); }
+    to { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+}
+
+/* إضافة الأنيميشن للحذف */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#task-list li.completed {
+    background-color: #d1ffd1;
+    text-decoration: line-through;
+    color: #888;
+    transition: background-color 0.3s, color 0.3s;
+    animation: shake 0.5s;
+}
+
+/* أنيميشن اهتزاز عند اكتمال المهمة */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+#task-list li .task-info {
+    display: flex;
+    align-items: center;
+}
+
+#task-list li .task-info input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#task-list li .task-info input[type="checkbox"]:hover {
+    transform: scale(1.4);
+}
+
+#task-list li .delete-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+#task-list li .delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+#task-list li:hover .delete-btn {
+    opacity: 1;
+}
+
+/* إخفاء عناصر الصوت */
+audio {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #current-date {
+        font-size: 0.9em;
+    }
+
+    #task-input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    #task-form button {
+        padding: 10px 12px;
+    }
+
+    #task-list li {
+        padding: 10px 12px;
+    }
+}
